@@ -9,7 +9,7 @@ const siteMetadata = {
   siteRepo: '',
   siteLogo: '/static/images/logovolvera.png',
   image: '/static/images/avatar.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '',
   email: 'rodrigo_voltera@hotmail.com',
   github: '',
   twitter: '',
