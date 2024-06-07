@@ -5,13 +5,13 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app https://www.youtube.com https://www.youtube-nocookie.com;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
-  media-src 'none';
+  media-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;
   connect-src *;
   font-src 'self';
-  frame-src giscus.app
+  frame-src giscus.app https://www.youtube.com https://www.youtube-nocookie.com;
 `
 
 const securityHeaders = [
@@ -45,7 +45,7 @@ const securityHeaders = [
     key: 'Strict-Transport-Security',
     value: 'max-age=31536000; includeSubDomains',
   },
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy
   {
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
